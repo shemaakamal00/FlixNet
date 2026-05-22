@@ -1,9 +1,11 @@
+import { Outlet } from "react-router-dom";
+
 function App() {
   return (
-    <div>
-      <h1>FlixNet</h1>
+    <div className="app-shell">
+      <Outlet />
     </div>
   );
 }
 
-export default App
+export default App;

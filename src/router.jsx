@@ -1,11 +1,28 @@
-import {createBrowserRouter} from 'react-router-dom'
-import Home from './pages/Home.jsx'
+import { createBrowserRouter } from "react-router-dom";
+import App from "./App";
+import Home from "./pages/Home";
+import MovieDetails from "./pages/MovieDetails";
+import WatchlistPage from "./pages/WatchlistPage";
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Home />
-    }
-])
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "titles/:mediaType/:id",
+        element: <MovieDetails />,
+      },
+      {
+        path: "watchlist",
+        element: <WatchlistPage />,
+      },
+    ],
+  },
+]);
 
-export default router
+export default router;
