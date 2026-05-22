@@ -1,11 +1,7 @@
-import { Outlet } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
 
 function App() {
-  return (
-    <div className="app-shell">
-      <Outlet />
-    </div>
-  );
+  return <Layout />;
 }
 
 export default App;
