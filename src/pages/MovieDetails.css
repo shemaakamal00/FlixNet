@@ -1,0 +1,79 @@
+.movie-details-page {
+  min-height: 100vh;
+}
+
+.movie-details-page__hero {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.movie-details-page__panel {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  padding: 2rem 3.5rem 4rem;
+}
+
+.movie-details-page__back-link {
+  grid-column: 1 / -1;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.movie-details-page__poster {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.movie-details-page__content {
+  align-self: end;
+  max-width: 700px;
+}
+
+.movie-details-page__title {
+  margin-bottom: 0.7rem;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+}
+
+.movie-details-page__meta,
+.movie-details-page__tags {
+  margin-bottom: 1rem;
+  color: #d1d1d1;
+}
+
+.movie-details-page__overview {
+  max-width: 60ch;
+  margin-bottom: 1.3rem;
+  color: #f0f0f0;
+  line-height: 1.7;
+}
+
+.movie-details-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.movie-details-page__secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .movie-details-page__panel {
+    grid-template-columns: 1fr;
+    padding: 1.25rem 1rem 3rem;
+  }
+
+  .movie-details-page__poster {
+    max-width: 240px;
+  }
+}

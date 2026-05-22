@@ -1,0 +1,73 @@
+.hero-banner {
+  min-height: 44vh;
+  padding: 2rem 0 1rem;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), #141414 88%),
+    radial-gradient(
+      circle at top left,
+      rgba(229, 9, 20, 0.24),
+      transparent 34%
+    ),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 40%);
+}
+
+.hero-banner__overlay {
+  padding: 2rem 3.5rem 1.5rem;
+  max-width: 860px;
+}
+
+.hero-banner__eyebrow {
+  margin-top: 1rem;
+  margin-bottom: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.85rem;
+  color: #9b9b9b;
+}
+
+.hero-banner__title {
+  margin-bottom: 1rem;
+  font-size: clamp(2.7rem, 6vw, 5.3rem);
+  line-height: 0.95;
+  color: #f5f5f1;
+}
+
+.hero-banner__description {
+  max-width: 58ch;
+  color: #d0d0d0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.hero-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.6rem;
+}
+
+.hero-banner__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 170px;
+  padding: 0.88rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.hero-banner__button--primary {
+  background: #ffffff;
+  color: #111111;
+}
+
+.hero-banner__button--secondary {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .hero-banner__overlay {
+    padding: 1.25rem 1rem 1rem;
+  }
+}
