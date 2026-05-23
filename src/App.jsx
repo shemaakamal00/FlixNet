@@ -1,9 +1,7 @@
+import SearchPage from './pages/SearchPage'
+
 function App() {
-  return (
-    <div>
-      <h1>FlixNet</h1>
-    </div>
-  );
+  return <SearchPage />
 }
 
 export default App
