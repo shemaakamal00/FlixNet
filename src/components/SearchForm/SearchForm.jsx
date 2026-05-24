@@ -1,6 +1,6 @@
-import styles from './SearchForm.module.css'
+import styles from "./SearchForm.module.css";
 
-function SearchForm({ query, onQueryChange, onSubmit }) {
+function SearchForm({ query, onQueryChange, onSubmit, isLoading = false }) {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
       <label className={styles.label} htmlFor="movie-search">
@@ -14,10 +14,12 @@ function SearchForm({ query, onQueryChange, onSubmit }) {
           onChange={(event) => onQueryChange(event.target.value)}
           placeholder="Search by title"
         />
-        <button type="submit">Search</button>
+        <button type="submit" disabled={isLoading}>
+          Search
+        </button>
       </div>
     </form>
-  )
+  );
 }
 
-export default SearchForm
+export default SearchForm;

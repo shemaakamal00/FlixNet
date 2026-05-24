@@ -1,4 +1,4 @@
-import styles from './SearchFilters.module.css'
+import styles from "./SearchFilters.module.css";
 
 function SearchFilters({ filters, genres, onChange }) {
   return (
@@ -57,7 +57,7 @@ function SearchFilters({ filters, genres, onChange }) {
         </select>
       </label>
     </div>
-  )
+  );
 }
 
-export default SearchFilters
+export default SearchFilters;

@@ -4,44 +4,53 @@
 }
 
 .label {
-  color: #e7e7e7;
+  color: var(--color-text-muted);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .controls {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.75rem;
 }
 
 .controls input,
 .controls button {
   min-height: 2.75rem;
-  border-radius: 6px;
+  border-radius: 4px;
   font: inherit;
 }
 
 .controls input {
   width: 100%;
-  border: 1px solid #3a3a3a;
+  border: 1px solid var(--color-border-hover);
   padding: 0 0.9rem;
-  color: #ffffff;
-  background: #191919;
+  color: var(--color-text);
+  background: #101010;
 }
 
 .controls input:focus {
-  border-color: #e50914;
+  border-color: var(--color-accent);
   outline: none;
 }
 
 .controls button {
   border: 0;
   padding: 0 1.35rem;
-  color: #ffffff;
-  font-weight: 700;
+  color: var(--color-text);
+  font-weight: 800;
   cursor: pointer;
-  background: #e50914;
+  background: var(--color-accent);
+}
+
+.controls button:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+.controls button:disabled {
+  cursor: wait;
+  opacity: 0.65;
 }
 
 @media (max-width: 560px) {
