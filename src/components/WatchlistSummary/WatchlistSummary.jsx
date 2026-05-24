@@ -2,10 +2,10 @@ import "./WatchlistSummary.css";
 
 function WatchlistSummary({ items }) {
   const finishedCount = items.filter(
-    (item) => item.status === "Finished",
+    (item) => item.status === "Färdig",
   ).length;
   const watchingCount = items.filter(
-    (item) => item.status === "Watching",
+    (item) => item.status === "Vill se",
   ).length;
 
   return (
