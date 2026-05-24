@@ -1,7 +1,5 @@
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
-const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
-const BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/w780";
 
 async function fetchFromTMDB(endpoint) {
   if (!API_KEY) {
@@ -17,23 +15,6 @@ async function fetchFromTMDB(endpoint) {
   }
 
   return response.json();
-}
-
-function fetchFromTMDBWithParams(endpoint, params = {}) {
-  const searchParams = new URLSearchParams({
-    language: "sv-SE",
-    ...params,
-  });
-
-  return fetchFromTMDB(`${endpoint}?${searchParams.toString()}`);
-}
-
-export function getPosterUrl(path) {
-  return path ? `${IMAGE_BASE_URL}${path}` : "";
-}
-
-export function getBackdropUrl(path) {
-  return path ? `${BACKDROP_BASE_URL}${path}` : "";
 }
 
 export function getNewMovies() {
@@ -74,28 +55,10 @@ export function getUpcomingMovies() {
   return fetchFromTMDB("/movie/upcoming?language=sv-SE&region=SE&page=1");
 }
 
-export async function getPopularMovies() {
-  const data = await fetchFromTMDBWithParams("/movie/popular", {
-    region: "SE",
-    page: "1",
-  });
-
-  return data.results ?? [];
-}
-
-export async function searchMovies(query) {
-  const data = await fetchFromTMDBWithParams("/search/movie", {
-    query,
-    include_adult: "false",
-    page: "1",
-  });
-
-  return data.results ?? [];
-}
-
-export async function getMovieGenres() {
-  const data = await fetchFromTMDBWithParams("/genre/movie/list");
-  return data.genres ?? [];
+export function searchMovies(query) {
+  return fetchFromTMDB(
+    `/search/movie?language=sv-SE&query=${encodeURIComponent(query)}&page=1`,
+  );
 }
 
 export function getMovieDetails(movieId) {
