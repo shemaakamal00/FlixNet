@@ -1,7 +1,7 @@
-import SearchPage from './pages/SearchPage'
+import Layout from "./components/Layout/Layout";
 
 function App() {
-  return <SearchPage />
+  return <Layout />;
 }
 
-export default App
+export default App;
