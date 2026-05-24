@@ -79,11 +79,7 @@ function MovieDetails() {
           </Link>
 
           <img
-            src={
-              titleData.poster_path
-                ? `${IMAGE_BASE_URL}${titleData.poster_path}`
-                : "https://placehold.co/240x360?text=No+Image"
-            }
+            src={`${IMAGE_BASE_URL}${titleData.poster_path}`}
             alt={title}
             className="movie-details-page__poster"
           />

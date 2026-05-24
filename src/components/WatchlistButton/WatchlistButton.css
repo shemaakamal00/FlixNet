@@ -1,7 +1,4 @@
 .watchlist-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.24);
   background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
@@ -18,17 +15,4 @@
 .watchlist-button--active {
   background: #ffffff;
   color: #111111;
-}
-
-.watchlist-button--icon {
-  flex: 0 0 42px;
-  min-width: 42px;
-  width: 42px;
-  height: 42px;
-  padding: 0;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  line-height: 1;
-  white-space: nowrap;
-  overflow: hidden;
 }

@@ -17,10 +17,10 @@
 
 .movie-row {
   display: flex;
-  gap: 0.7rem;
+  gap: 0.35rem;
   overflow-x: auto;
   overflow-y: visible;
-  padding: 1.8rem 5rem 6.5rem 0;
+  padding: 1.4rem 5rem 6rem 0;
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
@@ -34,9 +34,9 @@
 }
 
 .movie-section--top10 .movie-row {
-  gap: 1.6rem;
-  padding-top: 1.4rem;
-  padding-bottom: 6rem;
+  gap: 1.1rem;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
 }
 
 .slider-arrow {
