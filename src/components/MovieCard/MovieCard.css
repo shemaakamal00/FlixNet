@@ -1,19 +1,22 @@
 .movie-card {
   position: relative;
   flex: 0 0 310px;
+  width: 310px;
+  min-width: 310px;
   border-radius: 4px;
   cursor: pointer;
   z-index: 1;
   overflow: visible;
 }
 
-.movie-card:hover,
-.movie-card--expanded {
+.movie-card:hover {
   z-index: 999;
 }
 
 .movie-card__preview {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background: #181818;
   border-radius: 4px;
@@ -25,9 +28,8 @@
     border-radius 0.28s ease;
 }
 
-.movie-card:hover .movie-card__preview,
-.movie-card--expanded .movie-card__preview {
-  transform: scale(1.42) translateY(-34px);
+.movie-card:hover .movie-card__preview {
+  transform: scale(1.28) translateY(-20px);
   border-radius: 8px;
   box-shadow:
     0 0 15px rgba(0, 0, 0, 0.5),
@@ -40,13 +42,10 @@
   object-fit: cover;
   display: block;
   transition:
-    height 0.28s ease,
-    filter 0.28s ease;
+    filter 0.28s ease,
 }
 
-.movie-card:hover .movie-card__image,
-.movie-card--expanded .movie-card__image {
-  height: 238px;
+.movie-card:hover .movie-card__image {
   filter: saturate(1.04);
 }
 
@@ -75,15 +74,15 @@
   background: #181818;
 }
 
-.movie-card:hover .movie-card__info,
-.movie-card--expanded .movie-card__info {
+.movie-card:hover .movie-card__info {
   display: block;
 }
 
 .movie-card__actions {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
   margin-bottom: 0.85rem;
 }
 
@@ -91,7 +90,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 42px;
   width: 42px;
+  min-width: 42px;
   height: 42px;
   border: 2px solid rgba(255, 255, 255, 0.52);
   border-radius: 50%;
@@ -145,69 +146,27 @@
 .movie-card__tags {
   font-size: 0.88rem;
   color: #ffffff;
-}
-
-.movie-card__expanded-panel {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.9rem 1rem 1.1rem;
-  background: #181818;
-}
-
-.movie-card__expanded-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(150px, 0.85fr);
-  gap: 1rem;
-}
-
-.movie-card__expanded-summary {
-  color: #ececec;
-  font-size: 0.92rem;
-  line-height: 1.55;
-}
-
-.movie-card__expanded-side {
-  display: grid;
-  gap: 0.45rem;
-  color: #c9c9c9;
-  font-size: 0.82rem;
   line-height: 1.45;
 }
 
-.movie-card__expanded-side span {
-  color: #7f7f7f;
-}
-
-.movie-card__expanded-links {
-  margin-top: 1rem;
-}
-
-.movie-card__expanded-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0.75rem 1rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
 .movie-card--top10 {
-  flex-basis: 360px;
-  min-height: 250px;
+  flex-basis: 455px;
+  width: 455px;
+  min-width: 455px;
+  min-height: 310px;
 }
 
 .movie-card--top10 .movie-card__preview {
-  width: 165px;
-  margin-left: 145px;
+  width: 250px;
+  margin-left: 155px;
 }
 
-.movie-card--top10 .movie-card__image,
-.movie-card--top10:hover .movie-card__image,
-.movie-card--top10.movie-card--expanded .movie-card__image {
-  height: 245px;
+.movie-card--top10 .movie-card__image {
+  height: 275px;
+}
+
+.movie-card--top10:hover .movie-card__preview {
+  transform: scale(1.16) translateY(-18px);
 }
 
 .movie-card__rank {
@@ -225,31 +184,28 @@
 @media (max-width: 900px) {
   .movie-card {
     flex-basis: 240px;
+    width: 240px;
+    min-width: 240px;
   }
 
-  .movie-card:hover .movie-card__preview,
-  .movie-card--expanded .movie-card__preview {
-    transform: scale(1.16) translateY(-14px);
+  .movie-card:hover .movie-card__preview {
+    transform: scale(1.04) translateY(-6px);
   }
 
   .movie-card--top10 {
-    flex-basis: 250px;
-    min-height: 205px;
+    flex-basis: 300px;
+    width: 300px;
+    min-width: 300px;
+    min-height: 230px;
   }
 
   .movie-card--top10 .movie-card__preview {
-    width: 120px;
-    margin-left: 90px;
+    width: 165px;
+    margin-left: 110px;
   }
 
-  .movie-card--top10 .movie-card__image,
-  .movie-card--top10:hover .movie-card__image,
-  .movie-card--top10.movie-card--expanded .movie-card__image {
-    height: 180px;
-  }
-
-  .movie-card__expanded-top {
-    grid-template-columns: 1fr;
+  .movie-card--top10 .movie-card__image{
+    height: 200px;
   }
 
   .movie-card__rank {

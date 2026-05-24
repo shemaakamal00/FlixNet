@@ -39,7 +39,7 @@ function WatchlistPage() {
   } = useWatchlist();
   const [editingId, setEditingId] = useState(null);
   const [formValues, setFormValues] = useState({
-    status: "Plan to watch",
+    status: "Vill se",
     rating: "",
     note: "",
   });

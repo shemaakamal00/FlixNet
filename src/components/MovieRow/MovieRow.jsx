@@ -12,16 +12,16 @@ function MovieRow({
   const rowRef = useRef(null);
 
   function scrollLeft() {
-    rowRef.current.scrollBy({ left: -1200, behavior: "smooth" });
+    rowRef.current?.scrollBy({ left: -1200, behavior: "smooth" });
   }
 
   function scrollRight() {
-    rowRef.current.scrollBy({ left: 1200, behavior: "smooth" });
+    rowRef.current?.scrollBy({ left: 1200, behavior: "smooth" });
   }
 
   return (
     <section
-      className={`movie-row-section ${isTop10 ? "movie-row-section--top10" : ""}`}
+      className={`movie-section ${isTop10 ? "movie-section--top10" : ""}`}
     >
       <h2 className="movie-section__title">{title}</h2>
 
