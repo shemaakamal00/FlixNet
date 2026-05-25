@@ -1,0 +1,43 @@
+.filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.filters label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.filters select,
+.filters input {
+  min-height: 2.55rem;
+  width: 100%;
+  border: 1px solid var(--color-border-hover);
+  border-radius: 4px;
+  padding: 0 0.75rem;
+  color: var(--color-text);
+  font: inherit;
+  background: #101010;
+}
+
+.filters select:focus,
+.filters input:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+@media (max-width: 900px) {
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+}
