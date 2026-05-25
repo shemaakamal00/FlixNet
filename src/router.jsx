@@ -7,6 +7,7 @@ import WatchlistPage from "./pages/WatchlistPage";
 
 const router = createBrowserRouter([
   {
+    // App acts as the root layout wrapper — all child routes render inside its <Outlet />
     path: "/",
     element: <App />,
     children: [
@@ -15,10 +16,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        // Primary route: includes mediaType (movie/tv) so MovieDetails knows which API to call
         path: "titles/:mediaType/:id",
         element: <MovieDetails />,
       },
       {
+        // Fallback route for links that only provide an id (defaults to movie in MovieDetails)
         path: "movie/:id",
         element: <MovieDetails />,
       },
