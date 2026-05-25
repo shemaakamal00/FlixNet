@@ -13,6 +13,7 @@ function useHomeSections() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    // Tracks whether the component is still mounted to prevent state updates after unmount
     let isMounted = true;
 
     async function loadHomePage() {
@@ -20,6 +21,7 @@ function useHomeSections() {
         setIsLoading(true);
         setError("");
 
+        // Fire all API requests concurrently instead of one by one — much faster
         const [
           newMovies,
           top10Movies,
@@ -34,6 +36,7 @@ function useHomeSections() {
           getUpcomingMovies(),
         ]);
 
+        // Skip state update if the component unmounted while requests were in flight
         if (!isMounted) {
           return;
         }
@@ -73,6 +76,7 @@ function useHomeSections() {
     }
 
     loadHomePage();
+    // Cleanup: signal that the component has unmounted so we don't call setState on it
     return () => {
       isMounted = false;
     };

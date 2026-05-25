@@ -8,6 +8,7 @@ function Layout() {
     <div className="layout">
       <Navbar />
       <div className="layout__content">
+        {/* Outlet renders whichever child route is currently active */}
         <Outlet />
       </div>
       <Footer />
