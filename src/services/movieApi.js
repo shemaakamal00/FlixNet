@@ -65,6 +65,7 @@ export function getNewMovies() {
   return fetchFromTMDB("/movie/now_playing?language=sv-SE&region=SE&page=1");
 }
 
+//FlixNet Top 10 filmer i Sverige just nu
 export async function getTop10MoviesSweden() {
   const data = await fetchFromTMDB("/trending/movie/day?language=sv-SE");
   return {
@@ -73,6 +74,7 @@ export async function getTop10MoviesSweden() {
   };
 }
 
+//FlixNet Top 10 serier i Sverige just nu
 export async function getTop10SeriesSweden() {
   const data = await fetchFromTMDB("/trending/tv/day?language=sv-SE");
   return {
@@ -81,6 +83,7 @@ export async function getTop10SeriesSweden() {
   };
 }
 
+//kommer nästa vecka
 export function getComingNextWeek() {
   const today = new Date();
   const nextWeek = new Date();
@@ -95,10 +98,12 @@ export function getComingNextWeek() {
   );
 }
 
+//kommande filmer inom kort
 export function getUpcomingMovies() {
   return fetchFromTMDB("/movie/upcoming?language=sv-SE&region=SE&page=1");
 }
 
+// Sök filmer
 export function searchMovies(query) {
   return fetchFromTMDB(
     `/search/movie?language=sv-SE&query=${encodeURIComponent(query)}&page=1`,
@@ -151,6 +156,7 @@ export function getMovieDetails(movieId) {
   return fetchFromTMDB(`/movie/${movieId}?language=sv-SE`);
 }
 
+// Seriedetaljer
 export function getSeriesDetails(seriesId) {
   return fetchFromTMDB(`/tv/${seriesId}?language=sv-SE`);
 }

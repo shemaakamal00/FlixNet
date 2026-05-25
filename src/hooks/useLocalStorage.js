@@ -14,10 +14,11 @@ function useLocalStorage(key, fallbackValue) {
 
   useEffect(() => {
     try {
-      window.localStorage.setItem(key, JSON.stringify(value));
-    } catch {
-    }
-  }, [key, value]);
+        window.localStorage.setItem(key, JSON.stringify(value));
+      } catch {
+        // Ignore storage write errors so the UI can still render.
+      } 
+    },[key, value]);
 
   return [value, setValue];
 }
