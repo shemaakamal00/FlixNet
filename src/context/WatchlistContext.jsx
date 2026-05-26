@@ -2,6 +2,7 @@ import { createContext, useEffect, useMemo, useReducer, useState } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { createWatchlistEntry, watchlistReducer } from "../reducers/watchlistReducer";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const WatchlistContext = createContext(null);
 
 export function WatchlistProvider({ children }) {
@@ -52,7 +53,7 @@ export function WatchlistProvider({ children }) {
       toggleWatchlist,
       clearStatusMessage: () => setStatusMessage(""),
     }),
-    [items, statusMessage],
+    [items, statusMessage], // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   return (
