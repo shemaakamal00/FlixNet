@@ -160,3 +160,8 @@ export function getMovieDetails(movieId) {
 export function getSeriesDetails(seriesId) {
   return fetchFromTMDB(`/tv/${seriesId}?language=sv-SE`);
 }
+
+// Similar movies or series based on id and mediaType
+export function getSimilarTitles(id, mediaType) {
+  return fetchFromTMDB(`/${mediaType}/${id}/similar?language=sv-SE`);
+}
