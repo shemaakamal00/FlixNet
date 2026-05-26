@@ -64,10 +64,9 @@ function WatchlistItem({
                 onChange={onChange}
                 className="watchlist-item__input"
               >
-                <option value="Vill se">Vill se</option>
-                <option value="Tittar på">Tittar på</option>
-                <option value="Färdig">Färdig</option>
-                <option value="Anteckning">Anteckning</option>
+                <option value="Plan to watch">Plan to watch</option>
+                <option value="Watching">Watching</option>
+                <option value="Finished">Finished</option>
               </select>
             </label>
 

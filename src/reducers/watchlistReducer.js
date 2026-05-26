@@ -10,7 +10,7 @@ export function createWatchlistEntry(movie) {
     mediaType: movie.media_type || (movie.first_air_date ? "tv" : "movie"),
     posterPath: movie.poster_path || movie.backdrop_path || "",
     releaseDate: movie.release_date || movie.first_air_date || "",
-    status: "Vill se",
+    status: "Plan to watch",
     rating: "",
     note: "",
     addedAt: new Date().toISOString(),

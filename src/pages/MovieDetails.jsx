@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import PageState from "../components/PageState/PageState";
 import WatchlistButton from "../components/WatchlistButton/WatchlistButton";
-import { getMovieDetails, getSeriesDetails } from "../services/movieApi";
+import MovieRow from "../components/MovieRow/MovieRow";
+import useMovieDetails from "../hooks/useMovieDetails";
 import {
   BACKDROP_BASE_URL,
   getDisplayTitle,
@@ -14,57 +15,22 @@ import "./MovieDetails.css";
 
 function MovieDetails() {
   const { id, mediaType } = useParams();
-  const [titleData, setTitleData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
+  const { titleData, similarTitles, isLoading, error } = useMovieDetails(id, mediaType);
+  const topRef = useRef(null); // Ref used to scroll to top on navigation
 
+  // Scroll to top whenever the user navigates to a new movie or series
   useEffect(() => {
-    let isMounted = true;
+    topRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [id]);
 
-    async function loadDetails() {
-      try {
-        setIsLoading(true);
-        setError("");
-
-        const data =
-          mediaType === "tv"
-            ? await getSeriesDetails(id)
-            : await getMovieDetails(id);
-
-        if (isMounted) {
-          setTitleData({ ...data, media_type: mediaType });
-        }
-      } catch (requestError) {
-        if (isMounted) {
-          setError(requestError.message);
-        }
-      } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
-      }
-    }
-
-    loadDetails();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [id, mediaType]);
-
-  if (isLoading) {
-    return <PageState message="Laddar titel..." />;
-  }
-
-  if (error || !titleData) {
-    return <PageState message={error || "Titeln kunde inte hittas."} />;
-  }
+  if (isLoading) return <PageState message="Laddar titel..." />;
+  if (error || !titleData) return <PageState message={error || "Titeln kunde inte hittas."} />;
 
   const title = getDisplayTitle(titleData);
   const genres = getMovieGenres(titleData);
 
   return (
-    <main className="movie-details-page">
+    <main className="movie-details-page" ref={topRef}>
       <section
         className="movie-details-page__hero"
         style={{
@@ -79,11 +45,7 @@ function MovieDetails() {
           </Link>
 
           <img
-            src={
-              titleData.poster_path
-                ? `${IMAGE_BASE_URL}${titleData.poster_path}`
-                : "https://placehold.co/240x360?text=No+Image"
-            }
+            src={`${IMAGE_BASE_URL}${titleData.poster_path}`}
             alt={title}
             className="movie-details-page__poster"
           />
@@ -91,8 +53,7 @@ function MovieDetails() {
           <div className="movie-details-page__content">
             <h1 className="movie-details-page__title">{title}</h1>
             <p className="movie-details-page__meta">
-              {getReleaseYear(titleData)} · {titleData.vote_average?.toFixed(1)}{" "}
-              i betyg
+              {getReleaseYear(titleData)} · {titleData.vote_average?.toFixed(1)} i betyg
             </p>
             <p className="movie-details-page__overview">
               {titleData.overview || "Beskrivning saknas."}
@@ -101,16 +62,24 @@ function MovieDetails() {
 
             <div className="movie-details-page__actions">
               <WatchlistButton movie={titleData} />
-              <Link
-                to="/watchlist"
-                className="movie-details-page__secondary-link"
-              >
+              <Link to="/watchlist" className="movie-details-page__secondary-link">
                 Gå till min lista
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Show similar titles only if results exist */}
+      {similarTitles.length > 0 && (
+        <section className="movie-details-page__similar">
+          <MovieRow
+            title="Liknande titlar"
+            movies={similarTitles}
+            mediaType={mediaType}
+          />
+        </section>
+      )}
     </main>
   );
 }
