@@ -3,6 +3,8 @@ import App from "./App";
 import Home from "./pages/Home";
 import MovieDetails from "./pages/MovieDetails";
 import Search from "./pages/Search";
+import LoginPage from "./pages/LoginPage";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import WatchlistPage from "./pages/WatchlistPage";
 
 const router = createBrowserRouter([
@@ -14,6 +16,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
       },
       {
         // Primary route: includes mediaType (movie/tv) so MovieDetails knows which API to call
