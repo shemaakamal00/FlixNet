@@ -1,9 +1,6 @@
 import { createContext, useEffect, useMemo, useReducer, useState } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
-import {
-  createWatchlistEntry,
-  watchlistReducer,
-} from "../reducers/watchlistReducer";
+import { createWatchlistEntry, watchlistReducer } from "../reducers/watchlistReducer";
 
 export const WatchlistContext = createContext(null);
 
@@ -27,12 +24,12 @@ export function WatchlistProvider({ children }) {
 
   function updateWatchlistItem(itemId, values) {
     dispatch({ type: "UPDATE_ITEM", payload: { itemId, values } });
-    setStatusMessage("Titeln uppdaterades.");
+    setStatusMessage("Watchlist item updated.");
   }
 
   function removeFromWatchlist(itemId) {
     dispatch({ type: "DELETE_ITEM", payload: itemId });
-    setStatusMessage("Titeln togs bort från din lista.");
+    setStatusMessage("Watchlist item removed.");
   }
 
   function toggleWatchlist(movie) {

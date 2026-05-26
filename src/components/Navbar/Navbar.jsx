@@ -8,6 +8,7 @@ function Navbar() {
         FlixNet
       </NavLink>
       <nav className="navbar__links" aria-label="Huvudmeny">
+        {/* end prevents this link from staying active on every sub-route (/ matches all paths) */}
         <NavLink to="/" end className="navbar__link">
           Hem
         </NavLink>

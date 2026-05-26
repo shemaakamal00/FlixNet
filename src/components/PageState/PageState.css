@@ -1,19 +1,19 @@
 .page-state {
-  min-height: 45vh;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 0.75rem;
-  padding: 2rem;
-  text-align: center;
-}
-
-.page-state__title {
-  color: #ffffff;
-  font-size: 2rem;
-}
-
-.page-state__message {
-  color: #cfcfcf;
-  max-width: 60ch;
-}
+    min-height: 45vh;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .page-state__title {
+    color: #ffffff;
+    font-size: 2rem;
+  }
+  
+  .page-state__message {
+    color: #cfcfcf;
+    max-width: 60ch;
+  }
