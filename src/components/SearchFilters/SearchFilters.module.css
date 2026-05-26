@@ -1,3 +1,8 @@
+.wrapper {
+  display: grid;
+  gap: 0.85rem;
+}
+
 .filters {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -28,6 +33,29 @@
 .filters input:focus {
   border-color: var(--color-accent);
   outline: none;
+}
+
+.wrapper > button {
+  justify-self: end;
+  min-height: 2.4rem;
+  border: 1px solid var(--color-border-hover);
+  border-radius: 4px;
+  padding: 0 0.9rem;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--color-bg-elevated);
+}
+
+.wrapper > button:hover:not(:disabled) {
+  color: var(--color-text);
+  background: #2f2f2f;
+}
+
+.wrapper > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 @media (max-width: 900px) {

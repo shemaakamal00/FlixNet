@@ -11,7 +11,7 @@
 
 .controls {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   gap: 0.75rem;
 }
 
@@ -44,8 +44,19 @@
   background: var(--color-accent);
 }
 
+.controls button[type="button"] {
+  border: 1px solid var(--color-border-hover);
+  color: var(--color-text-muted);
+  background: var(--color-bg-elevated);
+}
+
 .controls button:hover:not(:disabled) {
   background: var(--color-accent-hover);
+}
+
+.controls button[type="button"]:hover:not(:disabled) {
+  color: var(--color-text);
+  background: #2f2f2f;
 }
 
 .controls button:disabled {

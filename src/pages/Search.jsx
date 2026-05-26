@@ -108,8 +108,19 @@ function Search() {
     setPage(1);
   }
 
+  function handleClearSearch() {
+    setQuery("");
+    setActiveQuery("");
+    setPage(1);
+  }
+
   function handleFilterChange(nextFilters) {
     setFilters(nextFilters);
+    setPage(1);
+  }
+
+  function handleResetFilters() {
+    setFilters(defaultFilters);
     setPage(1);
   }
 
@@ -117,6 +128,9 @@ function Search() {
   const visiblePages = getVisiblePages(page, totalPages);
   const hasQuery = Boolean(activeQuery);
   const isLoading = status === "loading";
+  const hasActiveFilters = Object.entries(defaultFilters).some(
+    ([key, value]) => filters[key] !== value,
+  );
 
   return (
     <main className="search-page">
@@ -133,9 +147,16 @@ function Search() {
           query={query}
           onQueryChange={setQuery}
           onSubmit={handleSubmit}
+          onClear={handleClearSearch}
           isLoading={isLoading}
         />
-        <SearchFilters filters={filters} genres={genres} onChange={handleFilterChange} />
+        <SearchFilters
+          filters={filters}
+          genres={genres}
+          onChange={handleFilterChange}
+          onReset={handleResetFilters}
+          hasActiveFilters={hasActiveFilters}
+        />
       </section>
 
       <section className="search-page__results">

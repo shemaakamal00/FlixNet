@@ -1,6 +1,6 @@
 import styles from "./SearchForm.module.css";
 
-function SearchForm({ query, onQueryChange, onSubmit, isLoading = false }) {
+function SearchForm({ query, onQueryChange, onSubmit, onClear, isLoading = false }) {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
       <label className={styles.label} htmlFor="movie-search">
@@ -16,6 +16,9 @@ function SearchForm({ query, onQueryChange, onSubmit, isLoading = false }) {
         />
         <button type="submit" disabled={isLoading}>
           Search
+        </button>
+        <button type="button" onClick={onClear} disabled={isLoading || !query.trim()}>
+          Clear
         </button>
       </div>
     </form>
