@@ -9,25 +9,23 @@ function MovieRow({
   isTop10 = false,
   badge = "",
 }) {
-  // useRef lets us scroll the DOM element directly without triggering a re-render
   const rowRef = useRef(null);
 
   function scrollLeft() {
-    rowRef.current.scrollBy({ left: -1200, behavior: "smooth" });
+    rowRef.current?.scrollBy({ left: -1200, behavior: "smooth" });
   }
 
   function scrollRight() {
-    rowRef.current.scrollBy({ left: 1200, behavior: "smooth" });
+    rowRef.current?.scrollBy({ left: 1200, behavior: "smooth" });
   }
 
   return (
     <section
-      className={`movie-row-section ${isTop10 ? "movie-row-section--top10" : ""}`}
+      className={`movie-section ${isTop10 ? "movie-section--top10" : ""}`}
     >
       <h2 className="movie-section__title">{title}</h2>
 
       <div className="movie-slider">
-        {/* Only show scroll arrows when there are enough cards to overflow */}
         {movies.length > 6 ? (
           <button
             type="button"
@@ -39,7 +37,6 @@ function MovieRow({
 
         <div className="movie-row" ref={rowRef}>
           {movies.map((movie, index) => (
-            // Compound key prevents collisions when the same movie appears in multiple rows
             <MovieCard
               key={`${movie.id}-${title}`}
               movie={movie}
