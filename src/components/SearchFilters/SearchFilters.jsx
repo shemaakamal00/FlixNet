@@ -10,7 +10,7 @@ function SearchFilters({ filters, genres, onChange, onReset, hasActiveFilters = 
             value={filters.genreId}
             onChange={(event) => onChange({ ...filters, genreId: event.target.value })}
           >
-            <option value="">All genres</option>
+            <option value="">Alla genrer</option>
             {genres.map((genre) => (
               <option key={genre.id} value={genre.id}>
                 {genre.name}
@@ -20,24 +20,24 @@ function SearchFilters({ filters, genres, onChange, onReset, hasActiveFilters = 
         </label>
 
         <label>
-          Year
+          År
           <input
             type="number"
             min="1900"
             max="2030"
             value={filters.year}
             onChange={(event) => onChange({ ...filters, year: event.target.value })}
-            placeholder="Any year"
+            placeholder="Valfritt år"
           />
         </label>
 
         <label>
-          Minimum rating
+          Minsta betyg
           <select
             value={filters.rating}
             onChange={(event) => onChange({ ...filters, rating: event.target.value })}
           >
-            <option value="">Any rating</option>
+            <option value="">Alla betyg</option>
             <option value="5">5+</option>
             <option value="6">6+</option>
             <option value="7">7+</option>
@@ -46,21 +46,21 @@ function SearchFilters({ filters, genres, onChange, onReset, hasActiveFilters = 
         </label>
 
         <label>
-          Sort by
+          Sortera efter
           <select
             value={filters.sortBy}
             onChange={(event) => onChange({ ...filters, sortBy: event.target.value })}
           >
-            <option value="relevance">Relevance</option>
-            <option value="rating">Rating</option>
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
+            <option value="relevance">Relevans</option>
+            <option value="rating">Betyg</option>
+            <option value="newest">Nyast</option>
+            <option value="oldest">Äldst</option>
           </select>
         </label>
       </div>
 
       <button type="button" onClick={onReset} disabled={!hasActiveFilters}>
-        Reset filters
+        Återställ filter
       </button>
     </div>
   );

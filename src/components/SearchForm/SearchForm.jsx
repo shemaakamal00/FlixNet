@@ -4,7 +4,7 @@ function SearchForm({ query, onQueryChange, onSubmit, onClear, isLoading = false
   return (
     <form className={styles.form} onSubmit={onSubmit}>
       <label className={styles.label} htmlFor="movie-search">
-        Search movies
+        Sök filmer
       </label>
       <div className={styles.controls}>
         <input
@@ -12,13 +12,13 @@ function SearchForm({ query, onQueryChange, onSubmit, onClear, isLoading = false
           type="search"
           value={query}
           onChange={(event) => onQueryChange(event.target.value)}
-          placeholder="Search by title"
+          placeholder="Sök efter titel"
         />
         <button type="submit" disabled={isLoading}>
-          Search
+          Sök
         </button>
         <button type="button" onClick={onClear} disabled={isLoading || !query.trim()}>
-          Clear
+          Rensa
         </button>
       </div>
     </form>

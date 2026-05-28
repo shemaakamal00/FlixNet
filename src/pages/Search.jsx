@@ -135,10 +135,10 @@ function Search() {
   return (
     <main className="search-page">
       <section className="search-page__header">
-        <p className="search-page__eyebrow">FlixNet Search</p>
-        <h1 className="search-page__title">Find your next title</h1>
+        <p className="search-page__eyebrow">FlixNet Sök</p>
+        <h1 className="search-page__title">Hitta nästa titel</h1>
         <p className="search-page__description">
-          Search by title or browse the catalog with genre, year, rating, and sorting controls.
+          Sök efter titel eller bläddra bland utbudet med genre, år, betyg och sortering.
         </p>
       </section>
 
@@ -163,25 +163,25 @@ function Search() {
         <div className="search-page__results-header">
           <div>
             <h2 className="search-page__results-title">
-              {hasQuery ? `Results for "${activeQuery}"` : "Browse movies"}
+              {hasQuery ? `Resultat för "${activeQuery}"` : "Bläddra bland filmer"}
             </h2>
             <p className="search-page__results-count">
-              Page {page} of {totalPages}
+              Sida {page} av {totalPages}
             </p>
           </div>
         </div>
 
-        {status === "loading" ? <p className="search-page__message">Loading movies...</p> : null}
+        {status === "loading" ? <p className="search-page__message">Laddar filmer...</p> : null}
         {status === "error" ? <p className="search-page__error">{error}</p> : null}
         {status === "success" ? <SearchResults movies={filteredMovies} /> : null}
 
-        <div className="search-page__pagination" aria-label="Search result pages">
+        <div className="search-page__pagination" aria-label="Sidor med sökresultat">
           <button
             type="button"
             onClick={() => setPage((currentPage) => Math.max(1, currentPage - 1))}
             disabled={page === 1 || isLoading}
           >
-            Previous
+            Föregående
           </button>
 
           {visiblePages.map((pageNumber) => (
@@ -201,7 +201,7 @@ function Search() {
             onClick={() => setPage((currentPage) => Math.min(totalPages, currentPage + 1))}
             disabled={page === totalPages || isLoading}
           >
-            Next
+            Nästa
           </button>
         </div>
       </section>

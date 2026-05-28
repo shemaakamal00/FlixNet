@@ -4,7 +4,7 @@ import styles from "./SearchResults.module.css";
 
 function SearchResults({ movies }) {
   if (movies.length === 0) {
-    return <p className={styles.message}>No movies found.</p>;
+    return <p className={styles.message}>Inga filmer hittades.</p>;
   }
 
   return (
