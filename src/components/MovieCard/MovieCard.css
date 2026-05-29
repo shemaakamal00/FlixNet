@@ -68,6 +68,16 @@
   border-radius: 3px;
 }
 
+.movie-card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .movie-card__info {
   display: none;
   padding: 1rem 1rem 0.95rem;
