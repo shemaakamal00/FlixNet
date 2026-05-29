@@ -58,6 +58,7 @@ function MovieCard({ movie, variant = "wide", rank, badge = "" }) {
           {badge ? <span className="movie-card__badge">{badge}</span> : null}
 
           <div className="movie-card__info">
+            <p className="movie-card__title">{title}</p>
             <div className="movie-card__actions">
               <Link
                 to={`/titles/${mediaType}/${movie.id}`}
